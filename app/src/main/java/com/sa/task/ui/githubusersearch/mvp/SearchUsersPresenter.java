@@ -55,15 +55,12 @@ public class SearchUsersPresenter implements BasePresenter {
 
             @Override
             public void onError(Throwable e) {
-                System.out.println("onError");
                 e.printStackTrace();
             }
 
             @Override
             public void onNext(GitHubUsersResponse imageSearchResponse) {
-                System.out.println("Response");
                 if (imageSearchResponse != null && imageSearchResponse.getItems().size() > 0) {
-                    System.out.println("Total Count------" + imageSearchResponse.getItems().size());
                     mSearchUsersView.showUsersList(imageSearchResponse.getItems());
                 } else {
                     mSearchUsersView.showMessage();
